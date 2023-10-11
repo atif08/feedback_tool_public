@@ -18,7 +18,7 @@ class FeedbackController extends Controller
         $query = new FeedbackIndexQuery();
 
         return inertia('Dashboard', [
-            'feedback' => $query->withCount(['upVote', 'downVote'])->paginate(),
+            'feedback' => $query->withCount(['upVote', 'downVote'])->latest()->paginate(),
         ]);
     }
 
